@@ -1,0 +1,62 @@
+<div id="bodyColor">
+    <div class="card cardDisplay">
+        <div class="card-body">
+            <p class="member-portal m-3">Registration Form</p>
+            <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && submitForm()" novalidate autocomplete="off">
+                <div class="text-center mt-5">
+                    <mat-form-field class="col-11">
+                        <input matInput type="text" placeholder="Usename" id="username" name="username" 
+                         required [(ngModel)]="model.username">
+                    </mat-form-field>
+
+                    <mat-form-field class="col-11">
+                        <input type="text" matInput  id="email" name="email" placeholder="Email" 
+                         pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10}$" [(ngModel)]="model.email"
+                         required [(ngModel)]="model.email" #email = "ngModel">
+                    </mat-form-field>
+
+                    <div *ngIf="model.email.length>0" class="alert-danger mb-3">
+                        <span *ngIf="email.errors?.pattern">
+                            Please enter a valid email address
+                        </span>
+                    </div>
+
+                    <mat-form-field class="col-11">
+                        <input matInput type="password" placeholder="Enter your password" id="password" 
+                         name="password" [type]="pwdHide ? 'password' : 'text'" required 
+                         [(ngModel)]="model.password" #password = "ngModel"
+                         pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}">
+                        <mat-icon matSuffix (click)="pwdHide = !pwdHide">
+                            {{pwdHide ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                    </mat-form-field>
+
+                    <div *ngIf="model.password.length>0" class="alert-danger mb-3">
+                        <span *ngIf="password.errors?.pattern">
+                            Password must be a minumum of 8 characters, and must contain at least one uppercase letter, one numeric digit (0-9), and one special character (@!%$ etc.)
+                        </span>
+                    </div>
+
+                    <mat-form-field class="col-11">
+                        <input matInput type="password" placeholder="Confirm password" id="confirmPassword" 
+                         name="confirmPassword" [type]="confirmPwdHide ? 'password' : 'text'" required 
+                         [(ngModel)]="confirmPwd" #confirmPassword="ngModel" pattern="{{ password.value }}">
+                        <mat-icon matSuffix (click)="confirmPwdHide = !confirmPwdHide">
+                            {{confirmPwdHide ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                    </mat-form-field>
+
+                    <div *ngIf="confirmPwd.length>0" class="alert-danger mb-3">
+                        <span *ngIf="model.password != confirmPwd">
+                            Password and confirm password doesn't match
+                        </span>
+                    </div>
+
+                    <div class="mt-5 mb-3">
+                        <button type="submit" class="btn button-background" [disabled]="!f.form.valid">REGISTER</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

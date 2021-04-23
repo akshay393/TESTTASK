@@ -1,0 +1,19 @@
+.contentCenter {
+    width: 100%;
+}
+
+.theading-color{
+    font-size: 20px;
+    text-align: center;
+}
+
+.tableRowColor{
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+tr:hover td{
+    background-color: rgb(185, 177, 177);
+}
+

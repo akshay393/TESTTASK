@@ -1,0 +1,17 @@
+<div class="row contentCenter mt-5 mb-5" *ngIf="userProfile">
+    <div class="col-12 text-center mb-5">
+        <img class="rounded-circle" src="{{userProfile?.data?.avatar}}" style="width: 20%">
+    </div>
+    <div class="col-6 textStyle">
+        <div>Id</div>
+        <div class="mt-3">First Name</div>
+        <div class="mt-3">Last Name</div>
+        <div class="mt-3">Email</div>
+    </div>
+    <div class="col-6 textStyle">
+        <div>{{userProfile?.data?.id}}</div>
+        <div class="mt-3">{{userProfile?.data?.first_name}}</div>
+        <div class="mt-3">{{userProfile?.data?.last_name}}</div>
+        <div class="mt-3">{{userProfile?.data?.email}}</div>
+    </div>
+</div>

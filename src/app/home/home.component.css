@@ -1,0 +1,11 @@
+.bg-light{
+    background-color: #008EC3 !important;
+    color: #fff;
+}
+
+.selectedAnchor 
+{
+    background-color: #FAF9FF;
+    color:#4a4545 !important;
+    border-bottom: 5px solid #EB9938
+}

@@ -1,0 +1,32 @@
+<div class="row contentCenter mt-5 mb-5">
+    <div class="col-1"></div>
+    <div class=" col-10">
+        <div class="table-responsive">
+            <table class="table ">
+                <thead class="theading-color">
+                    <tr>
+                        <th></th>
+                        <th class="">First Name</th>
+                        <th class="">Last Name</th>
+                        <th class="">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let list of userLists?.data | paginate: { id: 'foo',
+                    itemsPerPage: userLists?.per_page,
+                    currentPage: userLists?.page,
+                    totalItems: userLists?.total}" class="tableRowColor" (click)="userClick(list.id)">
+                        <td>
+                            <img class="rounded-circle" src="{{list.avatar}}" style="width: 45px; height: 45px;">
+                        </td>
+                        <td class="align-middle">{{list.first_name}}</td>
+                        <td class="align-middle">{{list.last_name}}</td>
+                        <td class="align-middle">{{list.email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls id="foo" (pageChange)="getUserList($event)"></pagination-controls>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>

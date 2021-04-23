@@ -1,0 +1,37 @@
+#bodyColor {
+  background-color: #0098D1;
+  height: 100%;
+}
+
+.cardDisplay {
+  margin: 0 auto;
+  width:50% ;
+  min-width: 345px;
+  top: 50% !important; 
+  transform: translateY(-50%) !important;
+}
+
+.member-portal { 
+  height: 44px; 
+  color: orange;	
+  font-size: 32px;	
+  line-height: 43px;	
+  text-align: center;
+  font-family: "sans-serif";
+}
+
+.button-background {	
+  width: 40%;
+  border-radius: 40px;	
+  background-color: #00A3E1; 
+  color:#ffffff ;
+  font-size: 16px; 
+  font-weight: bold;
+  font-family: "Roboto";
+}
+
+@media screen and (min-width : 900px) {
+  .button-background {
+    width: 25% !important;
+  }
+}
